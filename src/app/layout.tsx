@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Barlow } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/Layouts/Sidebar/Sidebar";
-import NewRelease from "@/Layouts/NewRelease/NewRelease";
+import Sidebar from "./Layouts/Sidebar/Sidebar";
+import NewRelease from "./Layouts/NewRelease/NewRelease";
 
 const barlow = Barlow({ weight: ["400"], subsets: ["latin"] });
 
@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${barlow.className} p-2 bg-black`}>
         <div className="flex">
-          <div className="w-[300px] mr-2 bg-sidebar height-layout rounded-md">
+          <div className="w-[300px] mr-2 height-layout rounded-md">
             <Sidebar />
           </div>
           <div className="grid grid-cols-5 gap-2 flex-grow">

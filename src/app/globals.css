@@ -12,3 +12,6 @@
 .height-layout {
   height: calc(100vh - 16px);
 }
+.height-sidebar-item {
+  height: calc(100vh - 104px - 24px);
+}

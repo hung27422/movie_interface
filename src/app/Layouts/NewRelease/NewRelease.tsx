@@ -1,5 +1,29 @@
+"use client";
+import NewReleaseItem from "@/components/NewReleaseItem";
+import useGetFilmNewRelease from "@/hooks/api/useGetFilmNewRelease";
+import Link from "next/link";
+
 function NewRelease() {
-  return <h2 className="text-green-600">NewRelease</h2>;
+  const { data: dataNewRelease } = useGetFilmNewRelease({ page: 1 });
+  if (!dataNewRelease) return null;
+  const NewReleases = dataNewRelease?.items;
+  return (
+    <div className="relative pb-5">
+      <div className="sticky top-0 left-0 right-2 z-10 text-center bg-primary rounded-md py-2">
+        <span className="text-2xl text-white">-- Mới phát hành --</span>
+      </div>
+      <div className="px-2">
+        {NewReleases.map((newRelease, index) => {
+          return <NewReleaseItem key={index} data={newRelease} />;
+        })}
+      </div>
+      <div className="div-load-more group">
+        <Link href={"/pages/NewRelease"} className="btn-load-more">
+          Xem thêm
+        </Link>
+      </div>
+    </div>
+  );
 }
 
 export default NewRelease;

@@ -1,3 +1,4 @@
+import useFormatDate from "@/hooks/components/useFormatDate";
 import { FilmItems } from "@/types";
 import { faCirclePlay, faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,11 +7,16 @@ interface Props {
   data: FilmItems;
 }
 function FilmItem({ data }: Props) {
+  const { dateStr } = useFormatDate({ isoDateStr: data.modified.time });
   return (
-    <div className="p-2 hover:bg-primary rounded-md cursor-pointer group">
-      <div className="flex flex-col items-center overflow-hidden relative">
+    <div className="p-2 rounded-md hover:cursor-pointer hover:bg-primary group">
+      <div className="flex flex-col items-center text-center overflow-hidden relative">
         <Image
-          src={"https://img.phimapi.com/" + data.thumb_url}
+          src={
+            data.thumb_url.includes("https://img.phimapi.com/")
+              ? data.thumb_url
+              : "https://img.phimapi.com/" + data.thumb_url
+          }
           alt="img-film"
           width={160}
           height={200}
@@ -18,7 +24,9 @@ function FilmItem({ data }: Props) {
         />
         <div className="flex items-center absolute top-1 left-4 px-2 py-1 bg-primary rounded-lg">
           <FontAwesomeIcon className="mr-1" icon={faClock} />
-          <span className="font-bold text-base">{data.time}</span>
+          <span className="font-bold text-base">
+            {data.time ? data.time : dateStr}
+          </span>
         </div>
         <div className="absolute top-[40%] text-white animate-bounce hidden group-hover:block">
           <FontAwesomeIcon

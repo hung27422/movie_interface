@@ -23,7 +23,7 @@ const categories = [
   { name: "Hành Động" },
   { name: "Khoa Học" },
 ];
-function CategoriesPhimle() {
+function CategoriesFilm() {
   return (
     <div className="">
       <span className="px-2 py-1 text-xl">Thể loại:</span>
@@ -41,4 +41,4 @@ function CategoriesPhimle() {
   );
 }
 
-export default CategoriesPhimle;
+export default CategoriesFilm;

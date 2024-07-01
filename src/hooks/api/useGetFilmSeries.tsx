@@ -1,5 +1,6 @@
 "use client";
-import { DataFilms, NewReleaseFilm } from "@/types";
+
+import { DataFilms } from "@/types";
 import useSWR from "swr";
 
 const fetcher = async (url: string) => {
@@ -12,10 +13,11 @@ const fetcher = async (url: string) => {
 };
 interface Props {
   page: number;
+  limit: number;
 }
-function useGetFilmNewRelease({ page }: Props) {
-  const { data, error } = useSWR<NewReleaseFilm>(
-    `https://phimapi.com/danh-sach/phim-moi-cap-nhat?page=${page}`,
+function useGetFilmSeries({ page, limit }: Props) {
+  const { data, error } = useSWR<DataFilms>(
+    `https://phimapi.com/v1/api/danh-sach/phim-bo?page=${page}&limit=${limit}`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -27,4 +29,4 @@ function useGetFilmNewRelease({ page }: Props) {
   return { data, error };
 }
 
-export default useGetFilmNewRelease;
+export default useGetFilmSeries;

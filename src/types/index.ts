@@ -31,3 +31,12 @@ export interface FilmItems {
   };
   category: Category[];
 }
+export interface NewReleaseFilm {
+  items: FilmItems[];
+  pagination: {
+    currentPage: number;
+    totalItems: number;
+    totalItemsPerPage: number;
+    totalPages: number;
+  };
+}

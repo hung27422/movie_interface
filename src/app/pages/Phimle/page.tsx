@@ -1,6 +1,6 @@
 "use client";
 import useGetFilmMovie from "@/hooks/api/useGetFilmMovie";
-import CategoriesPhimle from "./CategoriesPhimle";
+import CategoriesFilm from "../../../components/CategoriesFilm";
 import FilmItem from "@/components/FilmItem";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
@@ -17,7 +17,7 @@ function Phimle() {
   return (
     <div className="flex min-h-screen flex-col p-2 ">
       <h2 className="text-4xl py-2 text-center">--Phim lẻ--</h2>
-      <CategoriesPhimle />
+      <CategoriesFilm />
       <div className="grid grid-cols-5 mt-3">
         {movies?.map((movie, index) => {
           return <FilmItem key={index} data={movie} />;

@@ -26,7 +26,7 @@ export default function RootLayout({
           <div className="col-span-4 bg-page height-layout overflow-y-auto rounded-md hidden-scrollbar">
             {children}
           </div>
-          <div className="col-span-1 bg-new_release height-layout rounded-md">
+          <div className="col-span-1 bg-new_release height-layout overflow-y-auto rounded-md hidden-scrollbar">
             <NewRelease />
           </div>
         </div>

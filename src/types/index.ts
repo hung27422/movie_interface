@@ -12,8 +12,14 @@ export interface DataFilms {
     titlePage: string;
   };
 }
+export interface Category {
+  id: string;
+  name: string;
+  slug: string;
+}
 export interface FilmItems {
   name: string;
+  origin_name: string;
   slug: string;
   thumb_url: string;
   time: string;
@@ -23,4 +29,5 @@ export interface FilmItems {
   modified: {
     time: string;
   };
+  category: Category[];
 }

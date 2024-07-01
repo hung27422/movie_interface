@@ -19,17 +19,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${barlow.className} p-2 bg-black`}>
-        <div className="flex">
-          <div className="w-[300px] mr-2 height-layout rounded-md">
+        <div className="grid grid-cols-6 gap-2">
+          <div className="col-span-1 height-layout rounded-md">
             <Sidebar />
           </div>
-          <div className="grid grid-cols-5 gap-2 flex-grow">
-            <div className="col-span-4 bg-page height-layout overflow-hidden rounded-md">
-              {children}
-            </div>
-            <div className="col-span-1 bg-new_release height-layout rounded-md">
-              <NewRelease />
-            </div>
+          <div className="col-span-4 bg-page height-layout overflow-y-auto rounded-md hidden-scrollbar">
+            {children}
+          </div>
+          <div className="col-span-1 bg-new_release height-layout rounded-md">
+            <NewRelease />
           </div>
         </div>
       </body>

@@ -8,10 +8,22 @@
   }
 }
 @layer components {
+  /* .btn-load-more {
+    @apply flex items-center ml-auto mr-auto mt-2 w-fit h-10 px-3 py-1 border-2 border-primary rounded-lg hover:bg-primary hover:scale-125 transition ease-out group;
+  } */
+  .div-load-more {
+    @apply flex items-center ml-auto mr-auto mt-2 w-fit h-10 px-3 py-1 border-2 border-primary rounded-lg hover:bg-primary hover:scale-125 transition ease-out;
+  }
+  .btn-load-more {
+    @apply text-lg text-center font-bold text-primary group-hover:text-white;
+  }
 }
 .height-layout {
   height: calc(100vh - 16px);
 }
 .height-sidebar-item {
   height: calc(100vh - 104px - 24px);
+}
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
 }

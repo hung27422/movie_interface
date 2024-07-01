@@ -11,9 +11,13 @@ const fetcher = async (url: string) => {
   const data = await res.json();
   return data;
 };
-function useGetFilmMovie() {
+interface Props {
+  page: number;
+  limit: number;
+}
+function useGetFilmMovie({ page, limit }: Props) {
   const { data, error } = useSWR<DataFilms>(
-    "https://phimapi.com/v1/api/danh-sach/phim-le",
+    `https://phimapi.com/v1/api/danh-sach/phim-le?page=${page}&limit=${limit}`,
     fetcher,
     {
       revalidateIfStale: false,

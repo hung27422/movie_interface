@@ -3,13 +3,17 @@ import { FilmItems } from "@/types";
 import { faCirclePlay, faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import Link from "next/link";
 interface Props {
   data: FilmItems;
 }
 function FilmItem({ data }: Props) {
   const { dateStr } = useFormatDate({ isoDateStr: data.modified.time });
   return (
-    <div className="p-2 rounded-md hover:cursor-pointer hover:bg-primary group">
+    <Link
+      href={`/pages/Detail/${data.slug}`}
+      className="p-2 rounded-md hover:cursor-pointer hover:bg-primary group"
+    >
       <div className="flex flex-col items-center text-center overflow-hidden relative">
         <Image
           src={
@@ -41,7 +45,7 @@ function FilmItem({ data }: Props) {
           {data.origin_name}
         </span>
       </div>
-    </div>
+    </Link>
   );
 }
 

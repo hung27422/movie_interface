@@ -23,10 +23,10 @@ export default function RootLayout({
           <div className="col-span-1 height-layout rounded-md">
             <Sidebar />
           </div>
-          <div className="col-span-4 bg-page height-layout overflow-y-auto rounded-md hidden-scrollbar">
+          <div className="col-span-4 bg-page height-layout overflow-y-auto overflow-hidden rounded-md hidden-scrollbar">
             {children}
           </div>
-          <div className="col-span-1 bg-new_release height-layout overflow-y-auto rounded-md hidden-scrollbar">
+          <div className="col-span-1 bg-new_release height-layout overflow-y-auto rounded-md hidden-scrollbar overflow-hidden">
             <NewRelease />
           </div>
         </div>

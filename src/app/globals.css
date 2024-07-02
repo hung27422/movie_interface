@@ -27,3 +27,7 @@
 .hidden-scrollbar::-webkit-scrollbar {
   display: none;
 }
+.video-js {
+  width: 100%;
+  height: auto;
+}

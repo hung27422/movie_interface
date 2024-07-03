@@ -28,6 +28,7 @@ export interface FilmItems {
   slug: string;
   thumb_url: string;
   poster_url: string;
+  episode_current: string;
   time: string;
   type: string;
   year: number;
@@ -85,4 +86,18 @@ export interface DetailFilm {
     };
   };
   episodes: Episodes[];
+}
+export interface Search {
+  data: {
+    items: FilmItems[];
+    params: {
+      pagination: {
+        currentPage: number;
+        totalItems: number;
+        totalItemsPerPage: number;
+        totalPages: number;
+      };
+    };
+    titlePage: string;
+  };
 }

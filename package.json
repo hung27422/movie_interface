@@ -23,8 +23,8 @@
     "dotenv": "^16.4.5",
     "next": "14.2.4",
     "next-cloudinary": "^6.6.2",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
     "react-player": "^2.16.0",
     "styled-components": "^6.1.11",
     "swr": "^2.2.5"

@@ -27,6 +27,7 @@ export interface FilmItems {
   origin_name: string;
   slug: string;
   thumb_url: string;
+  poster_url: string;
   time: string;
   type: string;
   year: number;

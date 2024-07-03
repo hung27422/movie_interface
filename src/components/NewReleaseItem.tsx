@@ -3,16 +3,21 @@ import { FilmItems } from "@/types";
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import Link from "next/link";
 interface Props {
   data: FilmItems;
 }
 function NewReleaseItem({ data }: Props) {
   const { dateStr } = useFormatDate({ isoDateStr: data.modified.time });
+
   return (
-    <div className="flex items-center mt-2 hover:cursor-pointer hover:bg-primary p-2 rounded-md w-full group">
+    <Link
+      href={`/pages/Detail/${data.slug}`}
+      className="flex items-center mt-2 hover:cursor-pointer hover:bg-primary p-2 rounded-md w-full group"
+    >
       <div className="w-[60px] flex flex-col items-center text-center overflow-hidden relative">
         <Image
-          src={data.thumb_url}
+          src={data.poster_url}
           alt="img-film"
           width={80}
           height={40}
@@ -32,7 +37,7 @@ function NewReleaseItem({ data }: Props) {
         </span>
         <span className="text-gray-300 w-full truncate">Ngày: {dateStr}</span>
       </div>
-    </div>
+    </Link>
   );
 }
 

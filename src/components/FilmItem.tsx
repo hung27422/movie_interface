@@ -17,7 +17,9 @@ function FilmItem({ data }: Props) {
       <div className="flex flex-col items-center text-center overflow-hidden relative">
         <Image
           src={
-            data.thumb_url.includes("https://img.phimapi.com/")
+            data.poster_url
+              ? "https://img.phimapi.com/" + data.poster_url
+              : data.thumb_url
               ? data.thumb_url
               : "https://img.phimapi.com/" + data.thumb_url
           }

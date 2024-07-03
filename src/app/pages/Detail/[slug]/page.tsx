@@ -6,15 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CldVideoPlayer } from "next-cloudinary";
 import "next-cloudinary/dist/cld-video-player.css";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 function FilmDetail({ params }: { params: { slug: string } }) {
   const { data: dataDetail } = useGetDetailFilm({ slug: params.slug });
-  // console.log(dataDetail?.movie);
-  const linkFilmM3u8 = dataDetail?.episodes.flatMap((episode) => {
-    return episode.server_data.map((item) => {
-      return item.link_embed;
-    });
-  });
   const Directors = dataDetail?.movie.director;
   const Actors = dataDetail?.movie.actor;
 
@@ -82,15 +77,18 @@ function FilmDetail({ params }: { params: { slug: string } }) {
           </div>
           {/* Button */}
           <div className="flex items-center">
-            <div className="flex items-center">
-              <ViewTrailer linkTrailer={dataDetail.movie.trailer_url} />
-            </div>
+            {dataDetail.movie.trailer_url && (
+              <div className="flex items-center">
+                <ViewTrailer linkTrailer={dataDetail.movie.trailer_url} />
+              </div>
+            )}
             <div className="flex ml-6 mt-2">
-              {dataDetail.movie.type === "single" && (
-                <div className="div-load-more group">
-                  <button className="btn-load-more">Xem phim</button>
-                </div>
-              )}
+              <Link
+                href={`/pages/Watch/${params.slug}`}
+                className="div-load-more group"
+              >
+                <button className="btn-load-more">Xem phim</button>
+              </Link>
             </div>
           </div>
         </div>

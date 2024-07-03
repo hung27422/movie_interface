@@ -18,17 +18,16 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mui/material": "^5.15.21",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@vime/core": "^5.4.1",
+    "@vime/react": "^5.4.1",
     "dotenv": "^16.4.5",
-    "hls.js": "^1.5.12",
     "next": "14.2.4",
     "next-cloudinary": "^6.6.2",
     "react": "^18",
     "react-dom": "^18",
     "react-player": "^2.16.0",
     "styled-components": "^6.1.11",
-    "swr": "^2.2.5",
-    "video.js": "^8.12.0",
-    "videojs-contrib-hls": "^5.15.0"
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "@types/node": "^20",

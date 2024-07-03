@@ -1,3 +1,4 @@
+"use client";
 import { Blocks } from "react-loader-spinner";
 function Spinner() {
   return (

@@ -3,8 +3,10 @@ import useGetDetailFilm from "@/hooks/api/useGetDetailFilm";
 import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Player, Hls, CurrentTime } from "@vime/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import ReactPlayer from "react-player";
 interface EpisodeState {
   linkM3u8: string;
   linkEmbed: string;
@@ -43,18 +45,24 @@ function WatchDetail({ params }: { params: { slug: string } }) {
   return (
     <div className="pb-4">
       <div>
-        <Player controls className="rounded-md">
+        <ReactPlayer
+          controls
+          muted={true}
+          width="100%"
+          height="auto"
+          playing={true}
+          progressInterval={10000}
+          fileConfig={{ attributes: { poster: linkPoster } }}
+          url="https://s3.phim1280.tv/20240630/Ja27Rg8o/index.m3u8"
+        />
+        {/* <Player controls className="rounded-md">
           <Hls version="latest" poster={linkPoster}>
             <source
-              data-src={
-                valueChangeEpisodes
-                  ? valueChangeEpisodes.linkM3u8
-                  : linkFilmM3u8[0]
-              }
+              data-src="https://s3.phim1280.tv/20240630/Ja27Rg8o/index.m3u8"
               type="application/x-mpegURL"
             />
           </Hls>
-        </Player>
+        </Player> */}
       </div>
       <div>
         <div className="mt-3 text-center">

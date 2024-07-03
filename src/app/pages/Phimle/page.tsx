@@ -5,6 +5,7 @@ import FilmItem from "@/components/FilmItem";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
+import Spinner from "../Spinner/page";
 
 function Phimle() {
   const [page, setPage] = useState(1);
@@ -14,6 +15,7 @@ function Phimle() {
   const { data: dataMovie } = useGetFilmMovie({ page: page, limit: 15 });
   const movies = dataMovie?.data.items;
   const totalPages = dataMovie?.data.params.pagination.totalPages;
+  if (!dataMovie) return <Spinner />;
   return (
     <div className="flex min-h-screen flex-col p-2 ">
       <h2 className="text-4xl py-2 text-center">--Phim lẻ--</h2>

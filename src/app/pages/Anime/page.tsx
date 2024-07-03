@@ -5,6 +5,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
 import useGetFilmAnime from "@/hooks/api/useGetFilmAnime";
+import Spinner from "../Spinner/page";
 
 function Anime() {
   const [page, setPage] = useState(1);
@@ -14,6 +15,7 @@ function Anime() {
   const { data: dataAnime } = useGetFilmAnime({ page: page, limit: 15 });
   const animes = dataAnime?.data.items;
   const totalPages = dataAnime?.data.params.pagination.totalPages;
+  if (!dataAnime) return <Spinner />;
   return (
     <div className="flex min-h-screen flex-col p-2 ">
       <h2 className="text-4xl py-2 text-center">--Hoạt Hình--</h2>

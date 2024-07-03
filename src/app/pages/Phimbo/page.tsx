@@ -6,6 +6,7 @@ import Stack from "@mui/material/Stack";
 import { useState } from "react";
 import useGetFilmAnime from "@/hooks/api/useGetFilmAnime";
 import useGetFilmSeries from "@/hooks/api/useGetFilmSeries";
+import Spinner from "../Spinner/page";
 
 function Phimbo() {
   const [page, setPage] = useState(1);
@@ -15,6 +16,7 @@ function Phimbo() {
   const { data: dataFilmSeries } = useGetFilmSeries({ page: page, limit: 15 });
   const series = dataFilmSeries?.data.items;
   const totalPages = dataFilmSeries?.data.params.pagination.totalPages;
+  if (!dataFilmSeries) return <Spinner />;
   return (
     <div className="flex min-h-screen flex-col p-2 ">
       <h2 className="text-4xl py-2 text-center">--Hoạt Hình--</h2>

@@ -6,6 +6,7 @@ import useGetFilmNewRelease from "@/hooks/api/useGetFilmNewRelease";
 import useGetFilmSeries from "@/hooks/api/useGetFilmSeries";
 import Image from "next/image";
 import Link from "next/link";
+import Spinner from "./pages/Spinner/page";
 
 export default function Home() {
   const { data: dataMovie } = useGetFilmMovie({ page: 1, limit: 10 });
@@ -14,7 +15,9 @@ export default function Home() {
   const Animes = dataAnime?.data.items;
   const { data: dataFilmSeries } = useGetFilmSeries({ page: 1, limit: 10 });
   const FilmSeries = dataFilmSeries?.data.items;
-
+  if (!dataMovie && !dataAnime && !dataFilmSeries) {
+    return <Spinner />;
+  }
   return (
     <main className="flex min-h-screen flex-col p-2">
       <div className="">

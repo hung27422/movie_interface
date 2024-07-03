@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+:root {
+  --color-primary: #ff516d;
+}
 @layer base {
   body {
     @apply text-white;

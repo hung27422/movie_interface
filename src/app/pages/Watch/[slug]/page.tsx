@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useState } from "react";
 import ReactPlayer from "react-player";
+import Spinner from "../../Spinner/page";
 interface EpisodeState {
   linkM3u8: string;
   linkEmbed: string;
@@ -31,7 +32,7 @@ function WatchDetail({ params }: { params: { slug: string } }) {
     });
   });
   const linkPoster = dataDetail.movie.poster_url;
-  if (!linkFilmM3u8 || linkFilmM3u8.length === 0) return null;
+  if (!linkFilmM3u8 || linkFilmM3u8.length === 0) return <Spinner />;
   const handleChangeEpisode = (
     linkM3u8: string,
     linkEmbed: string,
@@ -39,7 +40,7 @@ function WatchDetail({ params }: { params: { slug: string } }) {
   ) => {
     setValueChangeEpisodes({ linkM3u8, linkEmbed, slug });
   };
-
+  if (!dataDetail) return <Spinner />;
   return (
     <div className="pb-4">
       <div>
@@ -51,16 +52,10 @@ function WatchDetail({ params }: { params: { slug: string } }) {
           playing={true}
           progressInterval={10000}
           fileConfig={{ attributes: { poster: linkPoster } }}
-          url="https://s3.phim1280.tv/20240630/Ja27Rg8o/index.m3u8"
+          url={
+            valueChangeEpisodes ? valueChangeEpisodes.linkM3u8 : linkFilmM3u8[0]
+          }
         />
-        {/* <Player controls className="rounded-md">
-          <Hls version="latest" poster={linkPoster}>
-            <source
-              data-src="https://s3.phim1280.tv/20240630/Ja27Rg8o/index.m3u8"
-              type="application/x-mpegURL"
-            />
-          </Hls>
-        </Player> */}
       </div>
       <div>
         <div className="mt-3 text-center">
@@ -103,7 +98,10 @@ function WatchDetail({ params }: { params: { slug: string } }) {
           ) : (
             <div className="grid grid-cols-10 gap-1">
               {listEpisode.map((episode, index) => {
-                const isSelected = valueChangeEpisodes?.slug === episode.slug;
+                const isSelected =
+                  valueChangeEpisodes?.slug === episode.slug
+                    ? valueChangeEpisodes?.slug === episode.slug
+                    : linkFilmM3u8[0] === episode.link_m3u8;
                 return (
                   <div
                     key={index}

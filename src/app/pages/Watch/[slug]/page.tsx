@@ -2,8 +2,6 @@
 import useGetDetailFilm from "@/hooks/api/useGetDetailFilm";
 import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Player, Hls, CurrentTime } from "@vime/react";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import ReactPlayer from "react-player";

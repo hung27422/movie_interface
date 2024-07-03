@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "your-build-directory",
+      "src": "package.json",
       "use": "@vercel/node",
       "config": {
         "npm": "--force"

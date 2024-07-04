@@ -20,6 +20,11 @@ const menus = [
     title: "Phim bộ",
     pathname: "/pages/Phimbo",
   },
+  {
+    id: 4,
+    title: "TV Show",
+    pathname: "/pages/TVShow",
+  },
 ];
 function SidebarBottom() {
   const pathname = usePathname();

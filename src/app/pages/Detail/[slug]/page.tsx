@@ -60,7 +60,7 @@ function FilmDetail({ params }: { params: { slug: string } }) {
           <span className="text-2xl mt-5 ">
             Số tập đã ra: {dataDetail.movie.episode_current}
           </span>
-          <span className="w-fit mt-5">{dataDetail.movie.content}</span>
+          <span className="w-fit mt-7">{dataDetail.movie.content}</span>
           <div className="text-base mt-3">
             Diễn viên:
             {Actors?.map((actor, index) => {

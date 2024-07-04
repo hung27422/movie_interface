@@ -13,26 +13,26 @@ function NewReleaseItem({ data }: Props) {
   return (
     <Link
       href={`/pages/Detail/${data.slug}`}
-      className="flex items-center mt-2 hover:cursor-pointer hover:bg-primary p-2 rounded-md w-full group"
+      className="grid grid-cols-3 gap-1 items-center mt-2 hover:cursor-pointer hover:bg-primary p-2 rounded-md w-full group"
     >
-      <div className="w-[60px] flex flex-col items-center text-center overflow-hidden relative">
+      <div className="col-span-1 flex flex-col items-center text-center overflow-hidden relative">
         <Image
           src={data.poster_url}
           alt="img-film"
           width={80}
           height={40}
-          className="w-[60px] h-[80px] rounded-md"
+          className="h-[80px] rounded-md"
         />
-        <div className="absolute top-[25%] left-[20%] hidden group-hover:block">
+        <div className="absolute top-[25%] left-[25%] hidden group-hover:block">
           <FontAwesomeIcon
             className="w-9 h-9 bg-primary rounded-full"
             icon={faCirclePlay}
           />
         </div>
       </div>
-      <div className="flex flex-col flex-grow ml-2">
-        <span className="text-lg w-[150px] truncate">{data.name}</span>
-        <span className="text-gray-300 w-[150px] truncate">
+      <div className="col-span-2 flex flex-col flex-grow ml-1">
+        <span className="text-lg w-full truncate">{data.name}</span>
+        <span className="text-gray-300 w-full truncate">
           {data.origin_name}
         </span>
         <span className="text-gray-300 w-full truncate">Ngày: {dateStr}</span>

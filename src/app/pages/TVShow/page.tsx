@@ -6,23 +6,24 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
 import Spinner from "../Spinner/page";
+import useGetFilmTVShow from "@/hooks/api/useGetFilmTVShow";
 
 function Phimle() {
   const [page, setPage] = useState(1);
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
-  const { data: dataMovie } = useGetFilmMovie({ page: page, limit: 15 });
-  const movies = dataMovie?.data.items;
-  const totalPages = dataMovie?.data.params.pagination.totalPages;
-  if (!dataMovie) return <Spinner />;
+  const { data: dataTV } = useGetFilmTVShow({ page: page, limit: 15 });
+  const tvShows = dataTV?.data.items;
+  const totalPages = dataTV?.data.params.pagination.totalPages;
+  if (!dataTV) return <Spinner />;
   return (
     <div className="flex min-h-screen flex-col p-2 ">
-      <h2 className="text-4xl py-2 text-center">--Phim lẻ--</h2>
+      <h2 className="text-4xl py-2 text-center">--TV Show--</h2>
       {/* <CategoriesFilm /> */}
       <div className="grid grid-cols-5 mt-3">
-        {movies?.map((movie, index) => {
-          return <FilmItem key={index} data={movie} />;
+        {tvShows?.map((item, index) => {
+          return <FilmItem key={index} data={item} />;
         })}
       </div>
       <div className="flex items-center justify-center py-2">

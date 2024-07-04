@@ -26,7 +26,7 @@ function FilmItem({ data }: Props) {
           alt="img-film"
           width={160}
           height={200}
-          className="h-[170px] rounded-md"
+          className="h-[220px] rounded-md"
         />
         <div className="flex items-center absolute top-1 left-4 px-2 py-1 bg-primary rounded-lg">
           <FontAwesomeIcon className="mr-1" icon={faClock} />

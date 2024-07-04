@@ -7,6 +7,7 @@ import useGetFilmSeries from "@/hooks/api/useGetFilmSeries";
 import Image from "next/image";
 import Link from "next/link";
 import Spinner from "./pages/Spinner/page";
+import useGetFilmTVShow from "@/hooks/api/useGetFilmTVShow";
 
 export default function Home() {
   const { data: dataMovie } = useGetFilmMovie({ page: 1, limit: 10 });
@@ -15,6 +16,9 @@ export default function Home() {
   const Animes = dataAnime?.data.items;
   const { data: dataFilmSeries } = useGetFilmSeries({ page: 1, limit: 10 });
   const FilmSeries = dataFilmSeries?.data.items;
+  const { data: dataTVShow } = useGetFilmTVShow({ page: 1, limit: 10 });
+  const TVShows = dataTVShow?.data.items;
+
   if (!dataMovie && !dataAnime && !dataFilmSeries) {
     return <Spinner />;
   }
@@ -57,6 +61,20 @@ export default function Home() {
         </div>
         <div className="div-load-more group">
           <Link href={"/pages/Phimbo"} className="btn-load-more">
+            Xem thêm
+          </Link>
+        </div>
+      </div>
+      {/* TV Show */}
+      <div className="mt-3">
+        <h2 className="text-4xl py-2 text-center">--TV Show--</h2>
+        <div className="grid grid-cols-5 gap-1">
+          {TVShows?.map((item, index) => {
+            return <FilmItem key={index} data={item} />;
+          })}
+        </div>
+        <div className="div-load-more group">
+          <Link href={"/pages/TVShow"} className="btn-load-more">
             Xem thêm
           </Link>
         </div>

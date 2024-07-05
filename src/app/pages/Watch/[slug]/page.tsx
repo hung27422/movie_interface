@@ -15,6 +15,7 @@ function WatchDetail({ params }: { params: { slug: string } }) {
   const { data: dataDetail } = useGetDetailFilm({ slug: params.slug });
   const [valueChangeEpisodes, setValueChangeEpisodes] =
     useState<EpisodeState | null>(null);
+  const [activeEpisode, setActiveEpisode] = useState(false);
   if (!dataDetail) return null;
   const linkFilmM3u8 = dataDetail?.episodes.flatMap((episode) => {
     return episode.server_data.map((item) => {
@@ -39,6 +40,7 @@ function WatchDetail({ params }: { params: { slug: string } }) {
     slug: string
   ) => {
     setValueChangeEpisodes({ linkM3u8, linkEmbed, slug });
+    setActiveEpisode(true);
   };
   if (!dataDetail) return <Spinner />;
   return (
@@ -51,7 +53,6 @@ function WatchDetail({ params }: { params: { slug: string } }) {
           height="auto"
           playing={true}
           progressInterval={10000}
-          fileConfig={{ attributes: { poster: linkPoster } }}
           url={
             valueChangeEpisodes ? valueChangeEpisodes.linkM3u8 : linkFilmM3u8[0]
           }
@@ -98,10 +99,9 @@ function WatchDetail({ params }: { params: { slug: string } }) {
           ) : (
             <div className="grid grid-cols-10 gap-1">
               {listEpisode.map((episode, index) => {
-                const isSelected =
-                  valueChangeEpisodes?.slug === episode.slug
-                    ? valueChangeEpisodes?.slug === episode.slug
-                    : linkFilmM3u8[0] === episode.link_m3u8;
+                const isSelected = !activeEpisode
+                  ? linkFilmM3u8[0] === episode.link_m3u8
+                  : valueChangeEpisodes?.slug === episode.slug;
                 return (
                   <div
                     key={index}

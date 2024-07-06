@@ -72,17 +72,17 @@ function WatchDetail({ params }: { params: { slug: string } }) {
           </a>
         </div>
         <div className="px-6 mb-3">
-          <span className="md:text-5xl text-2xl md:leading-[100px] leading-[50px]  ">
+          <span className="md:text-5xl text-2xl md:leading-[100px] leading-[40px]  ">
             {dataDetail.movie.name}
           </span>
-          <div className="flex items-center justify-between">
-            <div className="w-[60%]">
-              <div className="md:text-3xl text-lg  text-gray-400 break-all leading-[30px] ">
+          <div className="md:flex md:items-center justify-between">
+            <div className="md:w-[60%]">
+              <div className="md:text-3xl text-lg text-gray-400 break-all leading-[30px] ">
                 <span>{dataDetail.movie.origin_name}</span>{" "}
                 <span>({dataDetail.movie.year})</span>
               </div>
             </div>
-            <div className="flex-grow-0 ml-4">
+            <div className="flex-grow-0 ml-4 hidden md:block">
               <Link
                 className="text-sm text-blue-600 hover:text-primary"
                 href={`/pages/Detail/${params.slug}`}
@@ -96,10 +96,10 @@ function WatchDetail({ params }: { params: { slug: string } }) {
         <div className="px-6">
           {dataDetail.movie.type === "single" ? (
             <div className="w-[100px] h-10 p-2 bg-primary rounded-md text-center cursor-pointer">
-              <span className="text-lg font-bold">Tập Full</span>
+              <span className="text-lg font-bold">Full</span>
             </div>
           ) : (
-            <div className="grid grid-cols-5 md:grid-cols-10 gap-1">
+            <div className="grid grid-cols-4 md:grid-cols-10 gap-1">
               {listEpisode.map((episode, index) => {
                 const isSelected = !activeEpisode
                   ? linkFilmM3u8[0] === episode.link_m3u8
@@ -119,7 +119,9 @@ function WatchDetail({ params }: { params: { slug: string } }) {
                       )
                     }
                   >
-                    <span className="text-lg font-bold">Tập {index + 1}</span>
+                    <span className="md:text-lg text-base font-bold">
+                      Tập {index + 1}
+                    </span>
                   </div>
                 );
               })}

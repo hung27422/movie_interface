@@ -54,8 +54,8 @@ function FilmDetail({ params }: { params: { slug: string } }) {
           </div>
         </div>
         <div className="col-span-3 flex flex-col md:ml-10 pb-5 mr-auto ml-auto">
-          <span className="text-5xl">{dataDetail.movie.name}</span>
-          <span className="text-3xl text-gray-400 mt-3">
+          <span className="md:text-5xl text-3xl">{dataDetail.movie.name}</span>
+          <span className="md:text-3xl text-2xl text-gray-400 mt-3">
             {dataDetail.movie.origin_name}
           </span>
           <span className="text-2xl mt-5">

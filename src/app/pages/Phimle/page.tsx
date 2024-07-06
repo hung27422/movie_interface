@@ -26,7 +26,7 @@ function Phimle() {
         })}
       </div>
       <div className="flex items-center justify-center py-2 absolute bottom-3 left-0 right-0">
-        <Stack spacing={2}>
+        <Stack spacing={2} className="text-sm md:text-base">
           <Pagination
             onChange={handleChange}
             page={page}

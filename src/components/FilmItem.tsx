@@ -41,7 +41,7 @@ function FilmItem({ data }: Props) {
           />
         </div>
       </div>
-      <div className="flex flex-col items-start px-3 md:px-0 py-1">
+      <div className="flex flex-col items-start py-1">
         <span className="text-lg truncate w-full">{data.name}</span>
         <span className="text-base text-gray-300 truncate w-full">
           {data.origin_name}

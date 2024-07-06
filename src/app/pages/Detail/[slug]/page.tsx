@@ -44,13 +44,20 @@ function FilmDetail({ params }: { params: { slug: string } }) {
               );
             })}
           </div>
-          <div className="flex ml-6 mt-2 md:hidden">
-            <Link
-              href={`/pages/Watch/${params.slug}`}
-              className="div-load-more group"
-            >
-              <button className="btn-load-more">Xem phim</button>
-            </Link>
+          <div className="flex items-center justify-center md:hidden">
+            {dataDetail.movie.trailer_url && (
+              <div className="flex items-center">
+                <ViewTrailer linkTrailer={dataDetail.movie.trailer_url} />
+              </div>
+            )}
+            <div className="flex ml-6 mt-2">
+              <Link
+                href={`/pages/Watch/${params.slug}`}
+                className="div-load-more group"
+              >
+                <button className="btn-load-more">Xem phim</button>
+              </Link>
+            </div>
           </div>
         </div>
         <div className="col-span-3 flex flex-col md:ml-10 pb-5 mr-auto ml-auto">
@@ -84,13 +91,13 @@ function FilmDetail({ params }: { params: { slug: string } }) {
             })}
           </div>
           {/* Button */}
-          <div className="flex items-center">
+          <div className="flex items-center max-md:hidden">
             {dataDetail.movie.trailer_url && (
               <div className="flex items-center">
                 <ViewTrailer linkTrailer={dataDetail.movie.trailer_url} />
               </div>
             )}
-            <div className="flex ml-6 mt-2 max-md:hidden">
+            <div className="flex ml-6 mt-2">
               <Link
                 href={`/pages/Watch/${params.slug}`}
                 className="div-load-more group"

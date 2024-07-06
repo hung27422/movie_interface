@@ -24,7 +24,7 @@ function Anime() {
           return <FilmItem key={index} data={anime} />;
         })}
       </div>
-      <div className="flex items-center justify-center py-2 absolute bottom-3 left-0 right-0">
+      <div className="flex items-center justify-center py-2 absolute bottom-3 md:left-0 md:right-0">
         <Stack spacing={2}>
           <Pagination
             onChange={handleChange}

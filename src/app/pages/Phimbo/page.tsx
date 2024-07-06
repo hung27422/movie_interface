@@ -19,7 +19,7 @@ function Phimbo() {
   if (!dataFilmSeries) return <Spinner />;
   return (
     <div className="flex min-h-screen flex-col p-2 relative">
-      <h2 className="text-4xl py-2 text-center">--Hoạt Hình--</h2>
+      <h2 className="text-4xl py-2 text-center">--Phim Bộ--</h2>
       <div className="grid grid-cols-2 md:grid-cols-5 mt-3 mb-20">
         {series?.map((item, index) => {
           return <FilmItem key={index} data={item} />;

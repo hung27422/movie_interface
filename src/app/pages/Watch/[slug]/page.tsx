@@ -59,7 +59,7 @@ function WatchDetail({ params }: { params: { slug: string } }) {
         />
       </div>
       <div>
-        <div className="mt-3 text-center">
+        <div className="mt-3 text-center max-md:mb-6">
           <a
             className="bg-primary w-fit text-xl font-bold p-2 rounded-md text-center"
             href={
@@ -71,24 +71,26 @@ function WatchDetail({ params }: { params: { slug: string } }) {
             Dự phòng
           </a>
         </div>
-        <div className="flex items-center justify-between px-6">
-          <div>
-            <span className="text-5xl leading-[100px]">
-              {dataDetail.movie.name}
-            </span>
-            <div className="text-3xl text-gray-400 break-all leading-[60px] mb-3">
-              <span>{dataDetail.movie.origin_name}</span>{" "}
-              <span>({dataDetail.movie.year})</span>
+        <div className="px-6 mb-3">
+          <span className="md:text-5xl text-2xl md:leading-[100px] leading-[50px]  ">
+            {dataDetail.movie.name}
+          </span>
+          <div className="flex items-center justify-between">
+            <div className="w-[60%]">
+              <div className="md:text-3xl text-lg  text-gray-400 break-all leading-[30px] ">
+                <span>{dataDetail.movie.origin_name}</span>{" "}
+                <span>({dataDetail.movie.year})</span>
+              </div>
             </div>
-          </div>
-          <div>
-            <Link
-              className="text-lg text-blue-600 hover:text-primary"
-              href={`/pages/Detail/${params.slug}`}
-            >
-              <FontAwesomeIcon className="mr-3" icon={faAnglesLeft} />
-              Trờ về trang chi tiết
-            </Link>
+            <div className="flex-grow-0 ml-4">
+              <Link
+                className="text-sm text-blue-600 hover:text-primary"
+                href={`/pages/Detail/${params.slug}`}
+              >
+                <FontAwesomeIcon className="mr-3" icon={faAnglesLeft} />
+                Trờ về trang chi tiết
+              </Link>
+            </div>
           </div>
         </div>
         <div className="px-6">
@@ -97,7 +99,7 @@ function WatchDetail({ params }: { params: { slug: string } }) {
               <span className="text-lg font-bold">Tập Full</span>
             </div>
           ) : (
-            <div className="grid grid-cols-10 gap-1">
+            <div className="grid grid-cols-5 md:grid-cols-10 gap-1">
               {listEpisode.map((episode, index) => {
                 const isSelected = !activeEpisode
                   ? linkFilmM3u8[0] === episode.link_m3u8

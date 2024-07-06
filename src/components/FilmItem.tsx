@@ -24,11 +24,11 @@ function FilmItem({ data }: Props) {
               : "https://img.phimapi.com/" + data.thumb_url
           }
           alt="img-film"
-          width={160}
-          height={200}
-          className="h-[220px] rounded-md"
+          width={180}
+          height={220}
+          className="h-[220px] rounded-md "
         />
-        <div className="flex items-center absolute top-1 left-4 px-2 py-1 bg-primary rounded-lg">
+        <div className="flex items-center absolute top-1 md:left-2 left-5 px-2 py-1 bg-primary rounded-lg">
           <FontAwesomeIcon className="mr-1" icon={faClock} />
           <span className="font-bold text-base">
             {data.time ? data.time : dateStr}
@@ -41,7 +41,7 @@ function FilmItem({ data }: Props) {
           />
         </div>
       </div>
-      <div className="flex flex-col items-start px-2 py-1">
+      <div className="flex flex-col items-start px-3 md:px-0 py-1">
         <span className="text-lg truncate w-full">{data.name}</span>
         <span className="text-base text-gray-300 truncate w-full">
           {data.origin_name}

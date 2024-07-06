@@ -13,15 +13,15 @@ function NewReleaseItem({ data }: Props) {
   return (
     <Link
       href={`/pages/Detail/${data.slug}`}
-      className="grid grid-cols-3 gap-1 items-center mt-2 hover:cursor-pointer hover:bg-primary p-2 rounded-md w-full group"
+      className="md:grid md:grid-cols-3 overflow-x-auto gap-1 items-center mt-2 hover:cursor-pointer hover:bg-primary p-2 rounded-md  group"
     >
-      <div className="col-span-1 flex flex-col items-center text-center overflow-hidden relative">
+      <div className="md:col-span-1 flex flex-col items-center text-center overflow-hidden relative">
         <Image
           src={data.poster_url}
           alt="img-film"
           width={80}
           height={40}
-          className="h-[80px] rounded-md"
+          className="md:h-[80px] h-[140px] w-[120px] rounded-md"
         />
         <div className="absolute top-[25%] left-[25%] hidden group-hover:block">
           <FontAwesomeIcon
@@ -30,7 +30,7 @@ function NewReleaseItem({ data }: Props) {
           />
         </div>
       </div>
-      <div className="col-span-2 flex flex-col flex-grow ml-1">
+      <div className="md:col-span-2 flex flex-col flex-grow ml-1">
         <span className="text-lg w-full truncate">{data.name}</span>
         <span className="text-gray-300 w-full truncate">
           {data.origin_name}

@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Spinner from "./pages/Spinner/page";
 import useGetFilmTVShow from "@/hooks/api/useGetFilmTVShow";
+import NewRelease from "./Layouts/NewRelease/NewRelease";
 
 export default function Home() {
   const { data: dataMovie } = useGetFilmMovie({ page: 1, limit: 10 });
@@ -24,9 +25,12 @@ export default function Home() {
   }
   return (
     <main className="flex min-h-screen flex-col p-2">
+      <div className="md:hidden">
+        <NewRelease />
+      </div>
       <div className="">
         <h2 className="text-4xl py-2 text-center">--Phim lẻ--</h2>
-        <div className="grid grid-cols-5 gap-1">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
           {Movies?.map((movie, index) => {
             return <FilmItem key={index} data={movie} />;
           })}
@@ -40,7 +44,7 @@ export default function Home() {
       {/* Anime */}
       <div className="mt-3">
         <h2 className="text-4xl py-2 text-center">--Hoạt Hình--</h2>
-        <div className="grid grid-cols-5 gap-1">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
           {Animes?.map((anime, index) => {
             return <FilmItem key={index} data={anime} />;
           })}
@@ -54,7 +58,7 @@ export default function Home() {
       {/* Phim bộ */}
       <div className="mt-3">
         <h2 className="text-4xl py-2 text-center">--Phim Bộ--</h2>
-        <div className="grid grid-cols-5 gap-1">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
           {FilmSeries?.map((series, index) => {
             return <FilmItem key={index} data={series} />;
           })}
@@ -68,7 +72,7 @@ export default function Home() {
       {/* TV Show */}
       <div className="mt-3">
         <h2 className="text-4xl py-2 text-center">--TV Show--</h2>
-        <div className="grid grid-cols-5 gap-1">
+        <div className="grid grid-cols-2 md:grid-cols-5 md:gap-3 gap-5">
           {TVShows?.map((item, index) => {
             return <FilmItem key={index} data={item} />;
           })}

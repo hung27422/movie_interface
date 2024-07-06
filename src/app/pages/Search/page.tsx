@@ -37,7 +37,7 @@ function Search() {
       {!dataSearch ? (
         <Spinner />
       ) : (
-        <div className="grid grid-cols-3 gap-4 p-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 p-2">
           {dataSearch?.data.items.map((item, index) => {
             return <SearchItem key={index} data={item} />;
           })}

@@ -19,6 +19,9 @@
   .btn-load-more {
     @apply text-lg text-center font-bold text-primary group-hover:text-white;
   }
+  .container-newRelease-mobile {
+    @apply grid grid-flow-col grid-cols-[repeat(10,minmax(150px,1fr))] overflow-x-auto hidden-scrollbar;
+  }
 }
 .height-layout {
   height: calc(100vh - 16px);
@@ -28,8 +31,24 @@
 }
 .hidden-scrollbar::-webkit-scrollbar {
   display: none;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 .video-js {
   width: 100%;
   height: auto;
+}
+.newReleaseContainer {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(10, minmax(150px, 1fr));
+  gap: 16px; /* khoảng cách giữa các phần tử */
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+body::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
 }

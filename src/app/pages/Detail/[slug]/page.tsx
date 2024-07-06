@@ -25,27 +25,35 @@ function FilmDetail({ params }: { params: { slug: string } }) {
           className="w-full h-[400px] opacity-40"
         />
       </div>
-      <div className="absolute grid grid-cols-4 top-[30%] px-4 overflow-hidden">
-        <div className="col-span-1">
+      <div className="absolute grid grid-cols-1 md:grid-cols-4 top-[30%] px-4 overflow-hidden">
+        <div className="col-span-1 w-full max-md:mb-7">
           <Image
             src={dataDetail.movie.poster_url}
             alt="img-film"
             width={200}
             height={400}
-            className="w-[300px] h-[400px] shadow-md shadow-primary rounded-lg"
+            className="w-[300px] h-[400px] shadow-md shadow-primary rounded-lg text-center mr-auto ml-auto"
           />
-          <div className="text-base mt-5">
+          <div className="text-2xl mt-5 w-full text-center">
             Đạo diễn:
             {Directors?.map((director, index) => {
               return (
-                <span key={index}>
+                <span className="mr-auto ml-auto" key={index}>
                   {Directors.length === 1 ? Directors[0] : director}
                 </span>
               );
             })}
           </div>
+          <div className="flex ml-6 mt-2 md:hidden">
+            <Link
+              href={`/pages/Watch/${params.slug}`}
+              className="div-load-more group"
+            >
+              <button className="btn-load-more">Xem phim</button>
+            </Link>
+          </div>
         </div>
-        <div className="col-span-3 flex flex-col ml-10 pb-5">
+        <div className="col-span-3 flex flex-col md:ml-10 pb-5 mr-auto ml-auto">
           <span className="text-5xl">{dataDetail.movie.name}</span>
           <span className="text-3xl text-gray-400 mt-3">
             {dataDetail.movie.origin_name}
@@ -82,7 +90,7 @@ function FilmDetail({ params }: { params: { slug: string } }) {
                 <ViewTrailer linkTrailer={dataDetail.movie.trailer_url} />
               </div>
             )}
-            <div className="flex ml-6 mt-2">
+            <div className="flex ml-6 mt-2 max-md:hidden">
               <Link
                 href={`/pages/Watch/${params.slug}`}
                 className="div-load-more group"

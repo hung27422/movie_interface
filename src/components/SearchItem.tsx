@@ -16,13 +16,12 @@ function SearchItem({ data }: Props) {
           width={400}
           height={200}
           alt="img-film"
-          className="h-[300px] rounded-md"
+          className="md:h-[300px] h-[250px] rounded-md"
         ></Image>
       </div>
       <div className="flex flex-col p-2">
         <span className="text-2xl font-bold">{data.name}</span>
         <span className="text-lg text-gray-300">{data.origin_name}</span>
-
         <div className="flex flex-col">
           <span className="text-base font-bold">
             Số tập:{" "}

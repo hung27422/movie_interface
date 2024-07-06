@@ -3,6 +3,7 @@ import { Barlow } from "next/font/google";
 import "./globals.css";
 import Sidebar from "./Layouts/Sidebar/Sidebar";
 import NewRelease from "./Layouts/NewRelease/NewRelease";
+import NavbarMobile from "./Layouts/NavbarMobile/NavbarMobile";
 
 const barlow = Barlow({ weight: ["400"], subsets: ["latin"] });
 
@@ -18,15 +19,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${barlow.className} p-2 bg-black`}>
-        <div className="grid grid-cols-6 gap-2">
-          <div className="col-span-1 height-layout rounded-md">
+      <body className={`${barlow.className} p-2 bg-black hidden-scrollbar`}>
+        <div className="grid md:grid-cols-6 gap-2">
+          <div className="md:hidden">
+            <NavbarMobile />
+          </div>
+          <div className="md:col-span-1 height-layout rounded-md hidden md:block">
             <Sidebar />
           </div>
-          <div className="col-span-4 bg-page height-layout overflow-y-auto overflow-hidden rounded-md hidden-scrollbar">
+          <div className="md:col-span-4 bg-page height-layout overflow-y-auto overflow-hidden rounded-md hidden-scrollbar">
             {children}
           </div>
-          <div className="col-span-1 bg-new_release height-layout overflow-y-auto rounded-md hidden-scrollbar overflow-hidden">
+          <div className="md:col-span-1 bg-new_release height-layout overflow-y-auto rounded-md hidden-scrollbar overflow-hidden hidden md:block">
             <NewRelease />
           </div>
         </div>

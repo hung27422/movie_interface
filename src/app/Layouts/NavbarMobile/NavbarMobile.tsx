@@ -2,7 +2,7 @@ import NavbarDrawer from "@/components/NavbarDrawer";
 
 function NavbarMobile() {
   return (
-    <div className="flex items-center bg-sidebar justify-between rounded-md">
+    <div className="flex items-center bg-sidebar justify-between rounded-md ">
       <div className="w-[20%]">
         <NavbarDrawer />
       </div>

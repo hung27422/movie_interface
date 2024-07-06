@@ -20,7 +20,7 @@ function Phimle() {
     <div className="flex min-h-screen flex-col p-2 relative">
       <h2 className="text-4xl py-2 text-center">--Phim lẻ--</h2>
       {/* <CategoriesFilm /> */}
-      <div className="grid grid-cols-5 mt-3 mb-20">
+      <div className="grid grid-cols-2 md:grid-cols-5 mt-3 mb-20">
         {movies?.map((movie, index) => {
           return <FilmItem key={index} data={movie} />;
         })}

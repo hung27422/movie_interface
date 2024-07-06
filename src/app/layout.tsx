@@ -20,8 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${barlow.className} p-2 bg-black hidden-scrollbar`}>
-        <div className="grid md:grid-cols-6 gap-2">
-          <div className="md:hidden">
+        <div className="grid md:grid-cols-6 gap-2 md:relative">
+          <div className="md:hidden sticky top-2 left-2 right-2 z-30">
             <NavbarMobile />
           </div>
           <div className="md:col-span-1 height-layout rounded-md hidden md:block">

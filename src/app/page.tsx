@@ -58,7 +58,7 @@ export default function Home() {
       {/* Phim bộ */}
       <div className="mt-3">
         <h2 className="text-4xl py-2 text-center">--Phim Bộ--</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-5 md:gap-3 gap-5">
           {FilmSeries?.map((series, index) => {
             return <FilmItem key={index} data={series} />;
           })}

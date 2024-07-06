@@ -26,8 +26,24 @@ function Phimle() {
           return <FilmItem key={index} data={movie} />;
         })}
       </div>
-      <div className="flex items-center justify-center py-2 mt-6">
-        <Stack spacing={2}>
+      <div className="flex items-center justify-center py-2 absolute bottom-3 left-0 right-0">
+        <Stack spacing={2} className="block md:hidden">
+          <Pagination
+            onChange={handleChange}
+            page={page}
+            count={totalPages}
+            color="primary"
+            size="small"
+            style={{
+              color: "black",
+              backgroundColor: "#374151",
+              padding: "4px 0",
+              borderRadius: "24px",
+            }}
+          />
+        </Stack>
+        {/*  */}
+        <Stack spacing={2} className="hidden md:block">
           <Pagination
             onChange={handleChange}
             page={page}

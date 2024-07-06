@@ -28,7 +28,7 @@ function FilmItem({ data }: Props) {
           height={220}
           className="h-[220px] rounded-md "
         />
-        <div className="flex items-center justify-center absolute top-1 md:left-6 md:right-6 left-3 right-3 px-2 py-1 bg-primary rounded-lg text-center ml-auto mr-auto">
+        <div className="flex items-center justify-center absolute top-1 md:left-6 md:right-6 left-3 right-3 px-2 py-1 bg-primary rounded-lg ">
           <FontAwesomeIcon className="mr-1" icon={faClock} />
           <span className="font-bold text-base text-center">
             {data.time ? data.time : dateStr}

@@ -31,6 +31,7 @@ function Anime() {
             page={page}
             count={totalPages}
             color="primary"
+            size="small"
             style={{
               color: "black",
               backgroundColor: "#374151",

@@ -34,11 +34,18 @@ function WatchDetail({ params }: { params: { slug: string } }) {
   });
   const linkPoster = dataDetail.movie.poster_url;
   if (!linkFilmM3u8 || linkFilmM3u8.length === 0) return <Spinner />;
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   const handleChangeEpisode = (
     linkM3u8: string,
     linkEmbed: string,
     slug: string
   ) => {
+    scrollTop();
     setValueChangeEpisodes({ linkM3u8, linkEmbed, slug });
     setActiveEpisode(true);
   };
@@ -99,8 +106,8 @@ function WatchDetail({ params }: { params: { slug: string } }) {
               <span className="text-lg font-bold">Full</span>
             </div>
           ) : (
-            <div className="grid grid-cols-4 md:grid-cols-10 gap-1">
-              {listEpisode.map((episode, index) => {
+            <div className="grid grid-cols-4 md:grid-cols-10 h-[48vh] overflow-hidden overflow-y-scroll hidden-scrollbar gap-1">
+              {listEpisode.map((episode, index) => {  
                 const isSelected = !activeEpisode
                   ? linkFilmM3u8[0] === episode.link_m3u8
                   : valueChangeEpisodes?.slug === episode.slug;
@@ -120,7 +127,7 @@ function WatchDetail({ params }: { params: { slug: string } }) {
                     }
                   >
                     <span className="md:text-lg text-base font-bold">
-                      Tập {index + 1}
+                      {index + 1}
                     </span>
                   </div>
                 );

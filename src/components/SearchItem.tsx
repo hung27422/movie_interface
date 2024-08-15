@@ -16,18 +16,20 @@ function SearchItem({ data }: Props) {
           width={400}
           height={200}
           alt="img-film"
-          className="md:h-[300px] h-[250px] rounded-md"
+          className="md:h-[300px] h-[200px] rounded-md"
         ></Image>
       </div>
       <div className="flex flex-col p-2">
-        <span className="text-2xl font-bold">{data.name}</span>
-        <span className="text-lg text-gray-300">{data.origin_name}</span>
+        <span className="md:text-2xl text-base font-bold">{data.name}</span>
+        <span className="md:text-lg text-gray-300 hidden md:block">
+          {data.origin_name}
+        </span>
         <div className="flex flex-col">
-          <span className="text-base font-bold">
-            Số tập:{" "}
+          <span className="md:text-lg text-sm font-bold">
+            Số tập:
             {data.episode_current ? data.episode_current : "Đang cập nhật"}
           </span>
-          <span className="text-base font-bold">
+          <span className="md:text-base text-sm font-bold">
             Thời gian: {data.time !== "N/A" ? data.time : "Đang cập nhật"}
           </span>
         </div>

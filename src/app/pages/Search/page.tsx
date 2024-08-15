@@ -19,7 +19,7 @@ function Search() {
       <div className="w-full text-center py-2 bg-sidebar">
         <input
           type="search"
-          className="w-[60%] h-12 outline-none rounded-md text-white bg-page py-1 px-3 font-bold"
+          className="w-[60%] h-12 outline-none rounded-md text-white bg-page py-1 px-3 text-sm md:text-base font-bold"
           value={valueSearch}
           placeholder="Nhập tên phim để tìm kiếm..."
           onChange={(e) => handleSearchValue(e.target.value)}

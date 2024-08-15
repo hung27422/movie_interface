@@ -11,8 +11,6 @@ interface Props {
 function FilmItem({ data }: Props) {
   const { dateStr } = useFormatDate({ isoDateStr: data.modified.time });
   const pathName = usePathname();
-  console.log(pathName);
-
   return (
     <Link
       href={`/pages/Detail/${data.slug}`}

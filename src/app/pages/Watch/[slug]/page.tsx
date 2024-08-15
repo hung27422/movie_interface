@@ -3,7 +3,7 @@ import useGetDetailFilm from "@/hooks/api/useGetDetailFilm";
 import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import Spinner from "../../Spinner/page";
 interface EpisodeState {
@@ -16,7 +16,13 @@ function WatchDetail({ params }: { params: { slug: string } }) {
   const [valueChangeEpisodes, setValueChangeEpisodes] =
     useState<EpisodeState | null>(null);
   const [activeEpisode, setActiveEpisode] = useState(false);
+
   if (!dataDetail) return null;
+  const lengthEpisodes = dataDetail.episodes.map((item, index) => {
+    return item.server_data.length;
+  });
+  console.log(lengthEpisodes[0]);
+
   const linkFilmM3u8 = dataDetail?.episodes.flatMap((episode) => {
     return episode.server_data.map((item) => {
       return item.link_m3u8;
@@ -32,7 +38,6 @@ function WatchDetail({ params }: { params: { slug: string } }) {
       return item;
     });
   });
-  const linkPoster = dataDetail.movie.poster_url;
   if (!linkFilmM3u8 || linkFilmM3u8.length === 0) return <Spinner />;
   const scrollTop = () => {
     window.scrollTo({
@@ -106,8 +111,12 @@ function WatchDetail({ params }: { params: { slug: string } }) {
               <span className="text-lg font-bold">Full</span>
             </div>
           ) : (
-            <div className="grid grid-cols-4 md:grid-cols-10 h-[48vh] overflow-hidden overflow-y-scroll hidden-scrollbar gap-1">
-              {listEpisode.map((episode, index) => {  
+            <div
+              className={`grid grid-cols-4 md:grid-cols-10 ${
+                lengthEpisodes[0] <= 100 ? "h-auto" : "h-[47vh]"
+              } overflow-hidden overflow-y-scroll hidden-scrollbar gap-1`}
+            >
+              {listEpisode.map((episode, index) => {
                 const isSelected = !activeEpisode
                   ? linkFilmM3u8[0] === episode.link_m3u8
                   : valueChangeEpisodes?.slug === episode.slug;

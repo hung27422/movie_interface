@@ -21,8 +21,6 @@ function WatchDetail({ params }: { params: { slug: string } }) {
   const lengthEpisodes = dataDetail.episodes.map((item, index) => {
     return item.server_data.length;
   });
-  console.log(lengthEpisodes[0]);
-
   const linkFilmM3u8 = dataDetail?.episodes.flatMap((episode) => {
     return episode.server_data.map((item) => {
       return item.link_m3u8;

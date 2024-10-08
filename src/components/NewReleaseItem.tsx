@@ -13,7 +13,7 @@ function NewReleaseItem({ data }: Props) {
   return (
     <Link
       href={`/pages/Detail/${data.slug}`}
-      className="md:grid md:grid-cols-3 overflow-x-auto gap-1 items-center mt-2 hover:cursor-pointer hover:bg-primary p-2 rounded-md  group"
+      className="md:grid md:grid-cols-3 overflow-x-auto gap-1 items-center mt-2 hover:cursor-pointer hover:bg-primary p-2 rounded-md group"
     >
       <div className="md:col-span-1 flex flex-col items-center text-center overflow-hidden relative">
         <Image

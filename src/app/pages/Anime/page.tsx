@@ -6,6 +6,7 @@ import Stack from "@mui/material/Stack";
 import { useState } from "react";
 import useGetFilmAnime from "@/hooks/api/useGetFilmAnime";
 import Spinner from "../Spinner/page";
+import TittlePage from "@/components/TittlePage";
 
 function Anime() {
   const [page, setPage] = useState(1);
@@ -18,7 +19,9 @@ function Anime() {
   if (!dataAnime) return <Spinner />;
   return (
     <div className="flex min-h-screen flex-col p-2 relative">
-      <h2 className="text-4xl py-2 text-center">--Hoạt Hình--</h2>
+      <div>
+        <TittlePage title={`Hoạt hình`} />
+      </div>
       <div className="grid grid-cols-2 md:grid-cols-5 mt-3 mb-20">
         {animes?.map((anime, index) => {
           return <FilmItem key={index} data={anime} />;

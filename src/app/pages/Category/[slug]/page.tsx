@@ -5,6 +5,7 @@ import FilmItem from "@/components/FilmItem";
 import { Pagination, Stack } from "@mui/material";
 import { useState } from "react";
 import useDataCategoryFilm from "@/hooks/components/useDataCategoryFilm";
+import TittlePage from "@/components/TittlePage";
 
 function Category({ params }: { params: { slug: string } }) {
   const [page, setPage] = useState(1);
@@ -24,10 +25,9 @@ function Category({ params }: { params: { slug: string } }) {
   return (
     <div>
       <div className="flex min-h-screen flex-col p-2 relative">
-        <h2 className="text-4xl py-2 text-center">
-          --Thể loại: {title?.name}--
-        </h2>
-        {/* <CategoriesFilm /> */}
+        <div>
+          <TittlePage title={`Thể Loại: ${title?.name}`} />
+        </div>
         <div className="grid grid-cols-2 md:grid-cols-5 mt-3 mb-20">
           {dataFilm?.map((movie, index) => {
             return <FilmItem key={index} data={movie} />;

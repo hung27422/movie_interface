@@ -5,6 +5,7 @@ import useDataCategoryFilm from "@/hooks/components/useDataCategoryFilm";
 import FilmItem from "@/components/FilmItem";
 import { Pagination, Stack } from "@mui/material";
 import { useState } from "react";
+import TittlePage from "@/components/TittlePage";
 
 function Country({ params }: { params: { slug: string } }) {
   const [page, setPage] = useState(1);
@@ -27,9 +28,9 @@ function Country({ params }: { params: { slug: string } }) {
       {" "}
       <div>
         <div className="flex min-h-screen flex-col p-2 relative">
-          <h2 className="text-4xl py-2 text-center">
-            --Quốc gia: {title?.name}--
-          </h2>
+          <div>
+            <TittlePage title={`Quốc Gia: ${title?.name}`} />
+          </div>
           {/* <CategoriesFilm /> */}
           <div className="grid grid-cols-2 md:grid-cols-5 mt-3 mb-20">
             {dataFilm?.map((movie, index) => {

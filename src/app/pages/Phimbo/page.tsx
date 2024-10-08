@@ -7,6 +7,7 @@ import { useState } from "react";
 import useGetFilmAnime from "@/hooks/api/useGetFilmAnime";
 import useGetFilmSeries from "@/hooks/api/useGetFilmSeries";
 import Spinner from "../Spinner/page";
+import TittlePage from "@/components/TittlePage";
 
 function Phimbo() {
   const [page, setPage] = useState(1);
@@ -19,7 +20,9 @@ function Phimbo() {
   if (!dataFilmSeries) return <Spinner />;
   return (
     <div className="flex min-h-screen flex-col p-2 relative">
-      <h2 className="text-4xl py-2 text-center">--Phim Bộ--</h2>
+      <div>
+        <TittlePage title={`Phim bộ`} />
+      </div>
       <div className="grid grid-cols-2 md:grid-cols-5 mt-3 mb-20">
         {series?.map((item, index) => {
           return <FilmItem key={index} data={item} />;

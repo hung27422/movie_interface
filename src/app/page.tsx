@@ -10,6 +10,7 @@ import Spinner from "./pages/Spinner/page";
 import useGetFilmTVShow from "@/hooks/api/useGetFilmTVShow";
 import NewRelease from "./Layouts/NewRelease/NewRelease";
 import Navbar from "./Layouts/Navbar/Navbar";
+import TittlePage from "@/components/TittlePage";
 
 export default function Home() {
   const { data: dataMovie } = useGetFilmMovie({ page: 1, limit: 10 });
@@ -31,7 +32,9 @@ export default function Home() {
           <NewRelease />
         </div>
         <div className="">
-          <h2 className="text-4xl py-2 text-center">--Phim lẻ--</h2>
+          <div>
+            <TittlePage title={`Phim lẻ`} />
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             {Movies?.map((movie, index) => {
               return <FilmItem key={index} data={movie} />;
@@ -45,7 +48,9 @@ export default function Home() {
         </div>
         {/* Anime */}
         <div className="mt-3">
-          <h2 className="text-4xl py-2 text-center">--Hoạt Hình--</h2>
+          <div>
+            <TittlePage title={`Hoạt hình`} />
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             {Animes?.map((anime, index) => {
               return <FilmItem key={index} data={anime} />;
@@ -59,7 +64,9 @@ export default function Home() {
         </div>
         {/* Phim bộ */}
         <div className="mt-3">
-          <h2 className="text-4xl py-2 text-center">--Phim Bộ--</h2>
+          <div>
+            <TittlePage title={`Phim bộ`} />
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             {FilmSeries?.map((series, index) => {
               return <FilmItem key={index} data={series} />;
@@ -73,7 +80,9 @@ export default function Home() {
         </div>
         {/* TV Show */}
         <div className="mt-3">
-          <h2 className="text-4xl py-2 text-center">--TV Show--</h2>
+          <div>
+            <TittlePage title={`TV Show`} />
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 ">
             {TVShows?.map((item, index) => {
               return <FilmItem key={index} data={item} />;

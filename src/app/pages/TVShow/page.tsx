@@ -1,12 +1,11 @@
 "use client";
-import useGetFilmMovie from "@/hooks/api/useGetFilmMovie";
-import CategoriesFilm from "../../../components/CategoriesFilm";
 import FilmItem from "@/components/FilmItem";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
 import Spinner from "../Spinner/page";
 import useGetFilmTVShow from "@/hooks/api/useGetFilmTVShow";
+import TittlePage from "@/components/TittlePage";
 
 function Phimle() {
   const [page, setPage] = useState(1);
@@ -19,8 +18,9 @@ function Phimle() {
   if (!dataTV) return <Spinner />;
   return (
     <div className="flex min-h-screen flex-col p-2 relative">
-      <h2 className="text-4xl py-2 text-center">--TV Show--</h2>
-      {/* <CategoriesFilm /> */}
+      <div>
+        <TittlePage title={`TV Show`} />
+      </div>
       <div className="grid grid-cols-2 md:grid-cols-5 mt-3 mb-20">
         {tvShows?.map((item, index) => {
           return <FilmItem key={index} data={item} />;

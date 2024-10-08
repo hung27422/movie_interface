@@ -6,6 +6,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
 import Spinner from "../Spinner/page";
+import TittlePage from "@/components/TittlePage";
 
 function Phimle() {
   const [page, setPage] = useState(1);
@@ -18,8 +19,10 @@ function Phimle() {
   if (!dataMovie) return <Spinner />;
   return (
     <div className="flex min-h-screen flex-col p-2 relative">
-      <h2 className="text-4xl py-2 text-center">--Phim lẻ--</h2>
-      {/* <CategoriesFilm /> */}
+      <div>
+        <TittlePage title={`Phim lẻ`} />
+      </div>
+
       <div className="grid grid-cols-2 md:grid-cols-5 mt-3 mb-20">
         {movies?.map((movie, index) => {
           return <FilmItem key={index} data={movie} />;

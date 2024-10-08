@@ -4,6 +4,7 @@ import { DetailFilm, Search } from "@/types";
 import useSWR from "swr";
 
 const fetcher = async (url: string) => {
+  if (!url) return null;
   const res = await fetch(url);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -17,7 +18,9 @@ interface Props {
 }
 function useGetDataSearch({ value, limit }: Props) {
   const { data, error } = useSWR<Search>(
-    `https://phimapi.com/v1/api/tim-kiem?keyword=${value}&limit=${limit}`,
+    value
+      ? `https://phimapi.com/v1/api/tim-kiem?keyword=${value}&limit=${limit}`
+      : null,
     fetcher,
     {
       revalidateIfStale: false,

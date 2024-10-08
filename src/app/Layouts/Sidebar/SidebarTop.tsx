@@ -17,7 +17,7 @@ const menus = [
     icon: <FontAwesomeIcon className="w-6 h-6 mr-4" icon={faMagnifyingGlass} />,
   },
 ];
-function SidebarTop() {
+function SidebarMain() {
   const pathname = usePathname();
   return (
     <div className="py-2 bg-sidebar rounded-md mb-2">
@@ -26,7 +26,7 @@ function SidebarTop() {
           <Link
             key={index}
             href={menu.path}
-            className={`flex items-center px-6 py-2 cursor-pointer ${
+            className={`flex items-center px-6 py-2 cursor-pointer hover:text-primary ${
               pathname === menu.path && "text-primary"
             } `}
           >
@@ -39,4 +39,4 @@ function SidebarTop() {
   );
 }
 
-export default SidebarTop;
+export default SidebarMain;

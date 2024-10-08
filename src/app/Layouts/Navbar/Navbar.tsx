@@ -20,12 +20,12 @@ function Navbar() {
     <>
       {pathName !== "/pages/Search" && (
         <div className="grid grid-cols-12 items-center text-center py-2 px-2  bg-sidebar">
-          <div className="md:col-span-7 col-span-12 flex text-center items-center justify-start mr-5">
+          <div className="md:col-span-7 col-span-12 flex text-center items-center justify-between md:mr-5">
             <div className="md:hidden block">
               <NavbarDrawer />
             </div>
             <Image
-              className="rounded-lg mr-4"
+              className="hidden md:block rounded-lg mr-4"
               src={Logo}
               width={60}
               height={50}
@@ -33,6 +33,15 @@ function Navbar() {
             />
             <div className="w-[80%]">
               <Search />
+            </div>
+            <div className="w-20 flex items-center justify-center">
+              <Image
+                className="md:hidden block rounded-lg w-10"
+                src={Logo}
+                width={60}
+                height={50}
+                alt="Logo"
+              />
             </div>
           </div>
           <div className="hidden md:flex first-letter col-span-5  items-center justify-start">

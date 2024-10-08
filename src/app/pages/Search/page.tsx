@@ -32,13 +32,13 @@ function Search() {
 
   return (
     <div>
-      <div className="flex items-center justify-start md:justify-center w-full py-2 bg-sidebar">
+      <div className="flex items-center justify-between md:justify-center w-full py-2 bg-sidebar">
         <div className="md:hidden block">
           <NavbarDrawer />
         </div>
         <div>
           <Image
-            className="rounded-lg mr-4"
+            className="hidden md:block rounded-lg mr-4"
             src={Logo}
             width={60}
             height={60}
@@ -52,6 +52,15 @@ function Search() {
           placeholder="Nhập tên phim để tìm kiếm..."
           onChange={(e) => handleSearchValue(e.target.value)}
         />
+        <div className="md:hidden w-20 flex items-center justify-center text-center">
+          <Image
+            className="rounded-lg mr-4 w-10"
+            src={Logo}
+            width={60}
+            height={60}
+            alt="logo"
+          />
+        </div>
       </div>
       {!isShowDataSearch ? (
         <div className="w-full text-center my-3">

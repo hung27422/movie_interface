@@ -26,8 +26,8 @@
 .height-layout {
   height: calc(100vh - 16px);
 }
-.height-sidebar-item {
-  height: calc(100vh - 104px - 24px);
+.height-sidebar-item-mobile {
+  height: calc(100vh - 292px - 32px);
 }
 .hidden-scrollbar::-webkit-scrollbar {
   display: none;

@@ -19,6 +19,9 @@ const config: Config = {
         sidebar: "#191941",
         page: "#030222",
       },
+      height: {
+        "sidebar-item": "calc(100vh - 104px - 24px)",
+      },
     },
   },
   plugins: [],

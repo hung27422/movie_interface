@@ -9,6 +9,7 @@ import Link from "next/link";
 import Spinner from "./pages/Spinner/page";
 import useGetFilmTVShow from "@/hooks/api/useGetFilmTVShow";
 import NewRelease from "./Layouts/NewRelease/NewRelease";
+import Navbar from "./Layouts/Navbar/Navbar";
 
 export default function Home() {
   const { data: dataMovie } = useGetFilmMovie({ page: 1, limit: 10 });
@@ -20,67 +21,69 @@ export default function Home() {
   const { data: dataTVShow } = useGetFilmTVShow({ page: 1, limit: 10 });
   const TVShows = dataTVShow?.data.items;
 
-  if (!dataMovie && !dataAnime && !dataFilmSeries) {
-    return <Spinner />;
-  }
+  const isLoadingData =
+    !dataMovie && !dataAnime && !dataFilmSeries && !dataTVShow;
+  if (isLoadingData) return <Spinner />;
   return (
-    <main className="flex min-h-screen flex-col p-2">
-      <div className="md:hidden">
-        <NewRelease />
-      </div>
-      <div className="">
-        <h2 className="text-4xl py-2 text-center">--Phim lẻ--</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-          {Movies?.map((movie, index) => {
-            return <FilmItem key={index} data={movie} />;
-          })}
+    <main className="flex min-h-screen flex-col ">
+      <div className="p-2">
+        <div className="md:hidden">
+          <NewRelease />
         </div>
-        <div className="div-load-more group">
-          <Link href={"/pages/Phimle"} className="btn-load-more">
-            Xem thêm
-          </Link>
+        <div className="">
+          <h2 className="text-4xl py-2 text-center">--Phim lẻ--</h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+            {Movies?.map((movie, index) => {
+              return <FilmItem key={index} data={movie} />;
+            })}
+          </div>
+          <div className="div-load-more group">
+            <Link href={"/pages/Phimle"} className="btn-load-more">
+              Xem thêm
+            </Link>
+          </div>
         </div>
-      </div>
-      {/* Anime */}
-      <div className="mt-3">
-        <h2 className="text-4xl py-2 text-center">--Hoạt Hình--</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-          {Animes?.map((anime, index) => {
-            return <FilmItem key={index} data={anime} />;
-          })}
+        {/* Anime */}
+        <div className="mt-3">
+          <h2 className="text-4xl py-2 text-center">--Hoạt Hình--</h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+            {Animes?.map((anime, index) => {
+              return <FilmItem key={index} data={anime} />;
+            })}
+          </div>
+          <div className="div-load-more group">
+            <Link href={"/pages/Anime"} className="btn-load-more">
+              Xem thêm
+            </Link>
+          </div>
         </div>
-        <div className="div-load-more group">
-          <Link href={"/pages/Anime"} className="btn-load-more">
-            Xem thêm
-          </Link>
+        {/* Phim bộ */}
+        <div className="mt-3">
+          <h2 className="text-4xl py-2 text-center">--Phim Bộ--</h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+            {FilmSeries?.map((series, index) => {
+              return <FilmItem key={index} data={series} />;
+            })}
+          </div>
+          <div className="div-load-more group">
+            <Link href={"/pages/Phimbo"} className="btn-load-more">
+              Xem thêm
+            </Link>
+          </div>
         </div>
-      </div>
-      {/* Phim bộ */}
-      <div className="mt-3">
-        <h2 className="text-4xl py-2 text-center">--Phim Bộ--</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-          {FilmSeries?.map((series, index) => {
-            return <FilmItem key={index} data={series} />;
-          })}
-        </div>
-        <div className="div-load-more group">
-          <Link href={"/pages/Phimbo"} className="btn-load-more">
-            Xem thêm
-          </Link>
-        </div>
-      </div>
-      {/* TV Show */}
-      <div className="mt-3">
-        <h2 className="text-4xl py-2 text-center">--TV Show--</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 ">
-          {TVShows?.map((item, index) => {
-            return <FilmItem key={index} data={item} />;
-          })}
-        </div>
-        <div className="div-load-more group">
-          <Link href={"/pages/TVShow"} className="btn-load-more">
-            Xem thêm
-          </Link>
+        {/* TV Show */}
+        <div className="mt-3">
+          <h2 className="text-4xl py-2 text-center">--TV Show--</h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 ">
+            {TVShows?.map((item, index) => {
+              return <FilmItem key={index} data={item} />;
+            })}
+          </div>
+          <div className="div-load-more group">
+            <Link href={"/pages/TVShow"} className="btn-load-more">
+              Xem thêm
+            </Link>
+          </div>
         </div>
       </div>
     </main>

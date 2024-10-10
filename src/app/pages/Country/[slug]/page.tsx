@@ -11,7 +11,7 @@ function Country({ params }: { params: { slug: string } }) {
   const [page, setPage] = useState(1);
 
   const { data } = useGetFilmByCountry({
-    page: 1,
+    page: page,
     limit: 10,
     slug: params.slug,
   });
@@ -25,7 +25,6 @@ function Country({ params }: { params: { slug: string } }) {
   const totalPages = data?.data.params.pagination.totalPages;
   return (
     <div>
-      {" "}
       <div>
         <div className="flex min-h-screen flex-col p-2 relative">
           <div>
